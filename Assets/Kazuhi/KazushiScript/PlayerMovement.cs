@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void AutomaticallyMove()
     {
-        rb2.AddForce(transform.right*xSpeed,0);
+        rb2.AddForce(transform.right*AutomaticallySpeed,0);
         //rb2.velocity=transform.right*AutomaticallySpeed;
     }
     // プレイヤーの自動移動
