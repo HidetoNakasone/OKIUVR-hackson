@@ -5,7 +5,7 @@ using UnityEngine.Video;
 
 public class LabGameDirector : MonoBehaviour
 {
-    public GameObject obj_1, obj_2, obj_3, obj_4;
+    public GameObject obj_1, obj_2, obj_3, obj_4, obj_monsterImage_1, obj_monsterImage_2, obj_monsterImage_3, obj_monsterImage_4;
     VideoPlayer videoPlayer_1, videoPlayer_2, videoPlayer_3, videoPlayer_4;
 
     // Start is called before the first frame update
@@ -20,6 +20,11 @@ public class LabGameDirector : MonoBehaviour
         videoPlayer_2.frame = 30;
         videoPlayer_3.frame = 50;
         videoPlayer_4.frame = 70;
+
+        obj_monsterImage_1.SetActive(false);
+        obj_monsterImage_2.SetActive(false);
+        obj_monsterImage_3.SetActive(false);
+        obj_monsterImage_4.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,6 +35,11 @@ public class LabGameDirector : MonoBehaviour
             videoPlayer_2.Stop();
             videoPlayer_3.Stop();
             videoPlayer_4.Stop();
+
+            obj_monsterImage_1.SetActive(true);
+            obj_monsterImage_2.SetActive(true);
+            obj_monsterImage_3.SetActive(true);
+            obj_monsterImage_4.SetActive(true);
         }
     }
 }
