@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class HepTest : MonoBehaviour
+public class TitleGameDirector : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,6 +14,8 @@ public class HepTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Hello, World");
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            SceneManager.LoadScene("LabScene");
+        }
     }
 }
