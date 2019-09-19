@@ -4,58 +4,61 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]private float xSpeed;//  プレイヤーの移動スピード
-    [SerializeField]private float AutomaticallySpeed;
-    [SerializeField]private float xPositiveRate;//  アクセルの加速割合
-    [SerializeField]private float xNegativeRate;//  ブレーキの加速割合
+    [SerializeField]private float xPositiveSpeed;//  アクセルのベクトル（+xのベクトル）
+    [SerializeField]private float xNegativeSpeed;//  ブレーキのベクトル（-xのベクトル）
+    //[SerializeField]private float AutomaticallySpeed;
+    //[SerializeField]private float Speed;//  オートランのベクトル（+xのベクトル）
+    //[SerializeField]private float xPositiveRate;//  アクセルの加速割合
+    //[SerializeField]private float xNegativeRate;//  ブレーキの加速割合
     [SerializeField]private Rigidbody2D rb2;
+    private bool isAccelerated=false;
+    private bool isPlayed=false;
+    //private bool is
     
     void Start()
     {
         rb2=GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        AutomaticallyMove();
+        if(isPlayed) return;
         SpeedUp();
-        SlowDown();
-    }
+        SlowDown();  
+    } 
+    // プレイヤーの自動移動
     void AutomaticallyMove()
     {
-        rb2.AddForce(transform.right*AutomaticallySpeed,0);
-        //rb2.velocity=transform.right*AutomaticallySpeed;
+        //Speed=Speed+AutomaticallySpeed;
     }
-    // プレイヤーの自動移動
+    // アクセル
     void SpeedUp()
     {
-        if(Input.GetMouseButton(0))
+        if(isAccelerated==false)
         {
-            IncreasexPositiveRate();
-            rb2.AddForce(transform.right*xSpeed,0);
-        }
-    }
-
-    void SlowDown()
-    {
-        if(Input.GetMouseButton(1))
-        {
-            if(xSpeed>0)
+            if(Input.GetMouseButtonUp(0))
             {
-                IncreasexNegativeRate();
-                rb2.AddForce(transform.right*-xSpeed,0);
+                rb2.velocity=new Vector2(xPositiveSpeed,0);
+                isAccelerated=true;
+                Debug.Log("akuseru");
             }
         }
     }
-    void IncreasexPositiveRate()
+    // ブレーキ
+    void SlowDown()
     {
-        xSpeed+=xSpeed*xPositiveRate;
-    }
-
-    void IncreasexNegativeRate()
-    {
-        xSpeed-=xSpeed*xNegativeRate;
+        if(isAccelerated)
+        {
+            if(Input.GetMouseButtonUp(1))
+            {
+                isPlayed=true;
+                rb2.velocity=new Vector2(0,0);
+                Vector2 brakeVevtor=new Vector2(xNegativeSpeed,0);
+                rb2.AddForce(brakeVevtor,ForceMode2D.Impulse);
+                Debug.Log("brake");
+                //rb2.velocity=new Vector2(0,0);
+            }
+        }     
     }
 }
 
