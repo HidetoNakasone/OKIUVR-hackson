@@ -2,24 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Kaiju : MonoBehaviour
 {
     public RectTransform kaijuRectTransform;
+    public GameDirector gameDirector;
     [SerializeField]private float kaijuSpeed;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         MovesKaiju();
+        if(kaijuRectTransform.localPosition.x>350);
     }
 
     void MovesKaiju()
     {
         kaijuRectTransform.localPosition+=new Vector3(kaijuSpeed,0,0);
     }
+    
 }

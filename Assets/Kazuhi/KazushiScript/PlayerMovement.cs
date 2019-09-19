@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]private float xPositiveSpeed;//  アクセルのベクトル（+xのベクトル）
     [SerializeField]private float xNegativeSpeed;//  ブレーキのベクトル（-xのベクトル）
+    public GameDirector gameDirector;
     //[SerializeField]private float AutomaticallySpeed;
     //[SerializeField]private float Speed;//  オートランのベクトル（+xのベクトル）
     //[SerializeField]private float xPositiveRate;//  アクセルの加速割合
@@ -13,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]private Rigidbody2D rb2;
     private bool isAccelerated=false;
     private bool isPlayed=false;
-    //private bool is
     
     void Start()
     {
