@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndGameDirector : MonoBehaviour
 {
@@ -109,6 +110,10 @@ public class EndGameDirector : MonoBehaviour
 
         // width, height
         BgRect.sizeDelta = new Vector2(800f, EndMessage.rectTransform.sizeDelta.y + 40f);
+
+        if (Input.GetKeyDown(KeyCode.R)) {
+            SceneManager.LoadScene("TitleScene");
+        }
 
     }
 }
