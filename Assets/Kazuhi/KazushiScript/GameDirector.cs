@@ -59,9 +59,15 @@ public class GameDirector : MonoBehaviour
             SendsEnding();
         }
     }
-    void JudgeEnding()
+    void JudgeEnding()//  プレイヤーの千葉ポジと怪獣の千葉のポジを判定。
     {
-        
+        //  どっちかがゴールしたら、それぞれ自分のポジションを取得。
+        //  千葉とポジションを比較して、到達、遅いの２＊２の９パターンを作る。
+        //     ・プレイヤー
+//       　　　遅い　　到達
+//        遅い　　　　（早すぎた！さぶー）
+//  ・怪獣　
+//        到達（遅すぎた！壊滅〜）　（ジャストタイミング！）
     }
     void SendsEnding()
     {

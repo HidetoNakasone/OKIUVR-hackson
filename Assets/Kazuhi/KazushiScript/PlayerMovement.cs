@@ -56,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 brakeVevtor=new Vector2(xNegativeSpeed,0);
                 rb2.AddForce(brakeVevtor,ForceMode2D.Impulse);
                 Debug.Log("brake");
-                //rb2.velocity=new Vector2(0,0);
             }
         }     
     }
