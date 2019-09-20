@@ -47,6 +47,7 @@ public class LabGameDirector : MonoBehaviour
             if (isMonsterAction) {
                 // Enterキーが押され、モンスター出現していた場合の処理。
                 Debug.Log("Go Next MoveMap >> ");
+                SceneManager.LoadScene("EndScene");
             }
         }
         if (Input.GetKeyDown(KeyCode.R)) {
